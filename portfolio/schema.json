@@ -1,0 +1,224 @@
+{
+  "id": "portfolio-modern",
+  "name": "Modern Portfolio",
+  "description": "A clean, minimalist portfolio perfect for designers, developers, and creative professionals",
+  "category": "portfolio",
+  "features": [
+    "Dark mode support",
+    "Filterable project gallery",
+    "Skills showcase",
+    "Contact form",
+    "Testimonials section",
+    "Responsive design"
+  ],
+  "customizableElements": {
+    "colors": true,
+    "fonts": true,
+    "layout": true,
+    "content": true
+  },
+  "contentSchema": [
+    {
+      "id": "metadata",
+      "title": "Page Metadata & SEO",
+      "description": "Configure page title and meta information",
+      "fields": [
+        {
+          "key": "page_title",
+          "label": "Page Title",
+          "type": "text",
+          "defaultValue": "John Doe - Creative Developer & Designer",
+          "maxLength": 60,
+          "required": true
+        },
+        {
+          "key": "page_description",
+          "label": "Page Description",
+          "type": "textarea",
+          "defaultValue": "Portfolio of John Doe, a creative developer and designer specializing in modern web experiences.",
+          "maxLength": 160,
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "hero",
+      "title": "Hero Section",
+      "description": "Your introduction and main call-to-action",
+      "fields": [
+        {
+          "key": "hero_greeting",
+          "label": "Greeting",
+          "type": "text",
+          "defaultValue": "Hello, I'm",
+          "required": true
+        },
+        {
+          "key": "hero_name",
+          "label": "Your Name",
+          "type": "text",
+          "defaultValue": "John Doe",
+          "required": true
+        },
+        {
+          "key": "hero_tagline",
+          "label": "Tagline",
+          "type": "text",
+          "defaultValue": "Creative Developer & Designer",
+          "required": true
+        },
+        {
+          "key": "hero_description",
+          "label": "Hero Description",
+          "type": "textarea",
+          "defaultValue": "I craft beautiful digital experiences that make a difference. Let's build something amazing together.",
+          "maxLength": 200,
+          "required": true
+        },
+        {
+          "key": "cta_primary_text",
+          "label": "Primary CTA Text",
+          "type": "text",
+          "defaultValue": "View My Work",
+          "required": true
+        },
+        {
+          "key": "cta_secondary_text",
+          "label": "Secondary CTA Text",
+          "type": "text",
+          "defaultValue": "Get In Touch",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "about",
+      "title": "About Section",
+      "description": "Tell your story and background",
+      "fields": [
+        {
+          "key": "about_title",
+          "label": "About Title",
+          "type": "text",
+          "defaultValue": "About Me",
+          "required": true
+        },
+        {
+          "key": "about_subtitle",
+          "label": "About Subtitle",
+          "type": "text",
+          "defaultValue": "A passionate creator with a love for design and code",
+          "required": true
+        },
+        {
+          "key": "about_intro",
+          "label": "Introduction Paragraph",
+          "type": "textarea",
+          "defaultValue": "I'm a creative developer and designer based in San Francisco. With over 5 years of experience, I specialize in creating beautiful, functional websites and applications that solve real problems.",
+          "maxLength": 300,
+          "required": true
+        },
+        {
+          "key": "about_experience",
+          "label": "Experience Paragraph",
+          "type": "textarea",
+          "defaultValue": "My journey began with a curiosity for how things work on the web. Since then, I've had the privilege of working with startups, agencies, and Fortune 500 companies, helping them bring their digital visions to life.",
+          "maxLength": 300,
+          "required": true
+        },
+        {
+          "key": "about_approach",
+          "label": "Approach Paragraph",
+          "type": "textarea",
+          "defaultValue": "I believe in clean code, thoughtful design, and creating experiences that users love. Every project is an opportunity to learn something new and push the boundaries of what's possible.",
+          "maxLength": 300,
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "projects",
+      "title": "Projects Section",
+      "description": "Showcase your work",
+      "fields": [
+        {
+          "key": "projects_title",
+          "label": "Projects Section Title",
+          "type": "text",
+          "defaultValue": "Featured Projects",
+          "required": true
+        },
+        {
+          "key": "projects_subtitle",
+          "label": "Projects Section Subtitle",
+          "type": "text",
+          "defaultValue": "A selection of my recent work",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "title": "Contact Information",
+      "description": "How people can reach you",
+      "fields": [
+        {
+          "key": "contact_title",
+          "label": "Contact Section Title",
+          "type": "text",
+          "defaultValue": "Let's Connect",
+          "required": true
+        },
+        {
+          "key": "contact_subtitle",
+          "label": "Contact Section Subtitle",
+          "type": "text",
+          "defaultValue": "I'm always open to discussing new projects and opportunities",
+          "required": true
+        },
+        {
+          "key": "contact_email",
+          "label": "Email Address",
+          "type": "email",
+          "defaultValue": "hello@johndoe.com",
+          "required": true
+        },
+        {
+          "key": "contact_phone",
+          "label": "Phone Number",
+          "type": "text",
+          "defaultValue": "+1 (555) 123-4567",
+          "required": false
+        },
+        {
+          "key": "contact_location",
+          "label": "Location",
+          "type": "text",
+          "defaultValue": "San Francisco, CA",
+          "required": false
+        },
+        {
+          "key": "contact_button_text",
+          "label": "Contact Button Text",
+          "type": "text",
+          "defaultValue": "Send Message",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "footer",
+      "title": "Footer Information",
+      "description": "Footer content and copyright",
+      "fields": [
+        {
+          "key": "footer_copyright",
+          "label": "Copyright Text",
+          "type": "text",
+          "defaultValue": "© 2024 John Doe. All rights reserved.",
+          "required": true
+        }
+      ]
+    }
+  ]
+}

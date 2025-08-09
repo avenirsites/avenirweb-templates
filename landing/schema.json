@@ -1,0 +1,608 @@
+{
+  "id": "landing-saas",
+  "name": "SaaS Landing Page",
+  "description": "High-converting landing page with pricing tables, features section, and testimonials",
+  "category": "business",
+  "features": [
+    "Hero with video background",
+    "Pricing tables",
+    "Feature cards",
+    "FAQ accordion",
+    "Newsletter signup",
+    "Social proof section"
+  ],
+  "customizableElements": {
+    "colors": true,
+    "fonts": true,
+    "layout": true,
+    "content": true
+  },
+  "contentSchema": [
+    {
+      "id": "metadata",
+      "title": "Page Metadata & SEO",
+      "description": "Configure page title, description, and SEO settings",
+      "fields": [
+        {
+          "key": "product_name",
+          "label": "Product Name",
+          "type": "text",
+          "defaultValue": "CloudFlow",
+          "required": true
+        },
+        {
+          "key": "tagline",
+          "label": "Tagline",
+          "type": "text",
+          "defaultValue": "Modern Solutions for Tomorrow's Challenges",
+          "maxLength": 60,
+          "required": true
+        },
+        {
+          "key": "tagline_short",
+          "label": "Short Tagline",
+          "type": "text",
+          "defaultValue": "Next-Gen Business Platform",
+          "maxLength": 40,
+          "required": true
+        },
+        {
+          "key": "meta_description",
+          "label": "Meta Description",
+          "type": "textarea",
+          "defaultValue": "Transform your business with CloudFlow. Boost productivity, streamline operations, and achieve remarkable results with our innovative platform.",
+          "maxLength": 160,
+          "required": true
+        },
+        {
+          "key": "meta_keywords",
+          "label": "Meta Keywords",
+          "type": "text",
+          "defaultValue": "business software, productivity, cloud platform, SaaS, workflow automation",
+          "required": true
+        },
+        {
+          "key": "company_name",
+          "label": "Company Name",
+          "type": "text",
+          "defaultValue": "CloudFlow Inc.",
+          "required": true
+        },
+        {
+          "key": "website_url",
+          "label": "Website URL",
+          "type": "url",
+          "defaultValue": "https://www.cloudflow.com",
+          "required": true
+        },
+        {
+          "key": "og_description",
+          "label": "OG Description",
+          "type": "textarea",
+          "defaultValue": "CloudFlow - The all-in-one platform that transforms how modern businesses operate. Start your free trial today.",
+          "maxLength": 160,
+          "required": true
+        },
+        {
+          "key": "og_image_url",
+          "label": "OG Image URL",
+          "type": "url",
+          "defaultValue": "https://www.cloudflow.com/images/og-image.jpg",
+          "required": true
+        },
+        {
+          "key": "twitter_description",
+          "label": "Twitter Description",
+          "type": "textarea",
+          "defaultValue": "Transform your business with CloudFlow. Boost productivity and streamline operations.",
+          "maxLength": 120,
+          "required": true
+        },
+        {
+          "key": "twitter_image_url",
+          "label": "Twitter Image URL",
+          "type": "url",
+          "defaultValue": "https://www.cloudflow.com/images/twitter-card.jpg",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "hero",
+      "title": "Hero Section",
+      "description": "The main headline and call-to-action area",
+      "fields": [
+        {
+          "key": "hero_title",
+          "label": "Hero Title",
+          "type": "text",
+          "defaultValue": "Transform Your Business with Next-Gen Solutions",
+          "required": true
+        },
+        {
+          "key": "hero_description",
+          "label": "Hero Description",
+          "type": "textarea",
+          "defaultValue": "Streamline operations, boost productivity, and unlock your team's full potential with CloudFlow - the platform designed for modern businesses.",
+          "maxLength": 200,
+          "required": true
+        },
+        {
+          "key": "primary_cta",
+          "label": "Primary CTA Text",
+          "type": "text",
+          "defaultValue": "Start Free Trial",
+          "required": true
+        },
+        {
+          "key": "secondary_cta",
+          "label": "Secondary CTA Text",
+          "type": "text",
+          "defaultValue": "Watch Demo",
+          "required": true
+        },
+        {
+          "key": "trust_text",
+          "label": "Trust Badge Text",
+          "type": "text",
+          "defaultValue": "Join 10,000+ companies already using CloudFlow",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "features",
+      "title": "Features Section",
+      "description": "Highlight your product features",
+      "fields": [
+        {
+          "key": "features_title",
+          "label": "Features Section Title",
+          "type": "text",
+          "defaultValue": "Everything you need to succeed",
+          "required": true
+        },
+        {
+          "key": "features_subtitle",
+          "label": "Features Section Subtitle",
+          "type": "text",
+          "defaultValue": "Powerful features designed to help your business thrive",
+          "required": true
+        },
+        {
+          "key": "feature_1_title",
+          "label": "Feature 1 Title",
+          "type": "text",
+          "defaultValue": "Real-time Analytics",
+          "required": true
+        },
+        {
+          "key": "feature_1_description",
+          "label": "Feature 1 Description",
+          "type": "textarea",
+          "defaultValue": "Get instant insights into your business performance with our advanced analytics dashboard",
+          "maxLength": 150,
+          "required": true
+        },
+        {
+          "key": "feature_2_title",
+          "label": "Feature 2 Title",
+          "type": "text",
+          "defaultValue": "Team Collaboration",
+          "required": true
+        },
+        {
+          "key": "feature_2_description",
+          "label": "Feature 2 Description",
+          "type": "textarea",
+          "defaultValue": "Work seamlessly with your team with built-in chat, file sharing, and project management",
+          "maxLength": 150,
+          "required": true
+        },
+        {
+          "key": "feature_3_title",
+          "label": "Feature 3 Title",
+          "type": "text",
+          "defaultValue": "Automation Tools",
+          "required": true
+        },
+        {
+          "key": "feature_3_description",
+          "label": "Feature 3 Description",
+          "type": "textarea",
+          "defaultValue": "Automate repetitive tasks and workflows to save time and reduce errors",
+          "maxLength": 150,
+          "required": true
+        },
+        {
+          "key": "feature_4_title",
+          "label": "Feature 4 Title",
+          "type": "text",
+          "defaultValue": "Enterprise Security",
+          "required": true
+        },
+        {
+          "key": "feature_4_description",
+          "label": "Feature 4 Description",
+          "type": "textarea",
+          "defaultValue": "Bank-level encryption and security measures to keep your data safe and compliant",
+          "maxLength": 150,
+          "required": true
+        },
+        {
+          "key": "feature_5_title",
+          "label": "Feature 5 Title",
+          "type": "text",
+          "defaultValue": "24/7 Support",
+          "required": true
+        },
+        {
+          "key": "feature_5_description",
+          "label": "Feature 5 Description",
+          "type": "textarea",
+          "defaultValue": "Get help whenever you need it with our dedicated support team available round the clock",
+          "maxLength": 150,
+          "required": true
+        },
+        {
+          "key": "feature_6_title",
+          "label": "Feature 6 Title",
+          "type": "text",
+          "defaultValue": "API Integration",
+          "required": true
+        },
+        {
+          "key": "feature_6_description",
+          "label": "Feature 6 Description",
+          "type": "textarea",
+          "defaultValue": "Connect with your favorite tools and services through our comprehensive API",
+          "maxLength": 150,
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "pricing",
+      "title": "Pricing Section",
+      "description": "Configure your pricing plans",
+      "fields": [
+        {
+          "key": "pricing_title",
+          "label": "Pricing Section Title",
+          "type": "text",
+          "defaultValue": "Simple, transparent pricing",
+          "required": true
+        },
+        {
+          "key": "pricing_subtitle",
+          "label": "Pricing Section Subtitle",
+          "type": "text",
+          "defaultValue": "Choose the perfect plan for your business",
+          "required": true
+        },
+        {
+          "key": "plan_starter_name",
+          "label": "Starter Plan Name",
+          "type": "text",
+          "defaultValue": "Starter",
+          "required": true
+        },
+        {
+          "key": "plan_starter_price",
+          "label": "Starter Plan Price",
+          "type": "text",
+          "defaultValue": "$29",
+          "required": true
+        },
+        {
+          "key": "plan_starter_period",
+          "label": "Starter Plan Period",
+          "type": "text",
+          "defaultValue": "per month",
+          "required": true
+        },
+        {
+          "key": "plan_starter_description",
+          "label": "Starter Plan Description",
+          "type": "text",
+          "defaultValue": "Perfect for small teams getting started",
+          "required": true
+        },
+        {
+          "key": "plan_pro_name",
+          "label": "Pro Plan Name",
+          "type": "text",
+          "defaultValue": "Professional",
+          "required": true
+        },
+        {
+          "key": "plan_pro_price",
+          "label": "Pro Plan Price",
+          "type": "text",
+          "defaultValue": "$99",
+          "required": true
+        },
+        {
+          "key": "plan_pro_period",
+          "label": "Pro Plan Period",
+          "type": "text",
+          "defaultValue": "per month",
+          "required": true
+        },
+        {
+          "key": "plan_pro_description",
+          "label": "Pro Plan Description",
+          "type": "text",
+          "defaultValue": "For growing teams that need more power",
+          "required": true
+        },
+        {
+          "key": "plan_enterprise_name",
+          "label": "Enterprise Plan Name",
+          "type": "text",
+          "defaultValue": "Enterprise",
+          "required": true
+        },
+        {
+          "key": "plan_enterprise_price",
+          "label": "Enterprise Plan Price",
+          "type": "text",
+          "defaultValue": "Custom",
+          "required": true
+        },
+        {
+          "key": "plan_enterprise_period",
+          "label": "Enterprise Plan Period",
+          "type": "text",
+          "defaultValue": "contact sales",
+          "required": true
+        },
+        {
+          "key": "plan_enterprise_description",
+          "label": "Enterprise Plan Description",
+          "type": "text",
+          "defaultValue": "Tailored solutions for large organizations",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "testimonials",
+      "title": "Testimonials Section",
+      "description": "Customer testimonials and social proof",
+      "fields": [
+        {
+          "key": "testimonials_title",
+          "label": "Testimonials Section Title",
+          "type": "text",
+          "defaultValue": "Loved by teams worldwide",
+          "required": true
+        },
+        {
+          "key": "testimonials_subtitle",
+          "label": "Testimonials Section Subtitle",
+          "type": "text",
+          "defaultValue": "See what our customers have to say",
+          "required": true
+        },
+        {
+          "key": "testimonial_1_quote",
+          "label": "Testimonial 1 Quote",
+          "type": "textarea",
+          "defaultValue": "CloudFlow has transformed how our team works. We've increased productivity by 40% in just 3 months!",
+          "maxLength": 200,
+          "required": true
+        },
+        {
+          "key": "testimonial_1_author",
+          "label": "Testimonial 1 Author",
+          "type": "text",
+          "defaultValue": "Sarah Johnson",
+          "required": true
+        },
+        {
+          "key": "testimonial_1_role",
+          "label": "Testimonial 1 Role",
+          "type": "text",
+          "defaultValue": "CEO, TechCorp",
+          "required": true
+        },
+        {
+          "key": "testimonial_2_quote",
+          "label": "Testimonial 2 Quote",
+          "type": "textarea",
+          "defaultValue": "The automation features alone have saved us countless hours. It's a game-changer for our business.",
+          "maxLength": 200,
+          "required": true
+        },
+        {
+          "key": "testimonial_2_author",
+          "label": "Testimonial 2 Author",
+          "type": "text",
+          "defaultValue": "Michael Chen",
+          "required": true
+        },
+        {
+          "key": "testimonial_2_role",
+          "label": "Testimonial 2 Role",
+          "type": "text",
+          "defaultValue": "Operations Manager, StartupXYZ",
+          "required": true
+        },
+        {
+          "key": "testimonial_3_quote",
+          "label": "Testimonial 3 Quote",
+          "type": "textarea",
+          "defaultValue": "Best investment we've made. The ROI has been incredible, and the support team is amazing.",
+          "maxLength": 200,
+          "required": true
+        },
+        {
+          "key": "testimonial_3_author",
+          "label": "Testimonial 3 Author",
+          "type": "text",
+          "defaultValue": "Emily Rodriguez",
+          "required": true
+        },
+        {
+          "key": "testimonial_3_role",
+          "label": "Testimonial 3 Role",
+          "type": "text",
+          "defaultValue": "Director of Operations, Enterprise Co",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "faq",
+      "title": "FAQ Section",
+      "description": "Frequently asked questions",
+      "fields": [
+        {
+          "key": "faq_title",
+          "label": "FAQ Section Title",
+          "type": "text",
+          "defaultValue": "Frequently asked questions",
+          "required": true
+        },
+        {
+          "key": "faq_subtitle",
+          "label": "FAQ Section Subtitle",
+          "type": "text",
+          "defaultValue": "Everything you need to know about CloudFlow",
+          "required": true
+        },
+        {
+          "key": "faq_1_question",
+          "label": "FAQ 1 Question",
+          "type": "text",
+          "defaultValue": "How does the free trial work?",
+          "required": true
+        },
+        {
+          "key": "faq_1_answer",
+          "label": "FAQ 1 Answer",
+          "type": "textarea",
+          "defaultValue": "You get 14 days of unlimited access to all features. No credit card required. Cancel anytime.",
+          "maxLength": 200,
+          "required": true
+        },
+        {
+          "key": "faq_2_question",
+          "label": "FAQ 2 Question",
+          "type": "text",
+          "defaultValue": "Can I change plans later?",
+          "required": true
+        },
+        {
+          "key": "faq_2_answer",
+          "label": "FAQ 2 Answer",
+          "type": "textarea",
+          "defaultValue": "Yes! You can upgrade or downgrade your plan at any time. Changes take effect on your next billing cycle.",
+          "maxLength": 200,
+          "required": true
+        },
+        {
+          "key": "faq_3_question",
+          "label": "FAQ 3 Question",
+          "type": "text",
+          "defaultValue": "Is my data secure?",
+          "required": true
+        },
+        {
+          "key": "faq_3_answer",
+          "label": "FAQ 3 Answer",
+          "type": "textarea",
+          "defaultValue": "Absolutely. We use bank-level encryption and are SOC 2 Type II certified. Your data is always safe with us.",
+          "maxLength": 200,
+          "required": true
+        },
+        {
+          "key": "faq_4_question",
+          "label": "FAQ 4 Question",
+          "type": "text",
+          "defaultValue": "Do you offer custom integrations?",
+          "required": true
+        },
+        {
+          "key": "faq_4_answer",
+          "label": "FAQ 4 Answer",
+          "type": "textarea",
+          "defaultValue": "Yes, our Enterprise plan includes custom integrations. We also have a comprehensive API for all plans.",
+          "maxLength": 200,
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "cta",
+      "title": "Call to Action Section",
+      "description": "Final call to action",
+      "fields": [
+        {
+          "key": "cta_title",
+          "label": "CTA Section Title",
+          "type": "text",
+          "defaultValue": "Ready to transform your business?",
+          "required": true
+        },
+        {
+          "key": "cta_subtitle",
+          "label": "CTA Section Subtitle",
+          "type": "text",
+          "defaultValue": "Join thousands of companies already using CloudFlow",
+          "required": true
+        },
+        {
+          "key": "cta_button_text",
+          "label": "CTA Button Text",
+          "type": "text",
+          "defaultValue": "Get Started Free",
+          "required": true
+        },
+        {
+          "key": "cta_subtext",
+          "label": "CTA Subtext",
+          "type": "text",
+          "defaultValue": "No credit card required • 14-day free trial",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "footer",
+      "title": "Footer Information",
+      "description": "Footer content and links",
+      "fields": [
+        {
+          "key": "footer_copyright",
+          "label": "Copyright Text",
+          "type": "text",
+          "defaultValue": "© 2024 CloudFlow Inc. All rights reserved.",
+          "required": true
+        },
+        {
+          "key": "footer_email",
+          "label": "Contact Email",
+          "type": "email",
+          "defaultValue": "hello@cloudflow.com",
+          "required": true
+        },
+        {
+          "key": "footer_phone",
+          "label": "Contact Phone",
+          "type": "text",
+          "defaultValue": "1-800-CLOUD-99",
+          "required": false
+        },
+        {
+          "key": "footer_address",
+          "label": "Company Address",
+          "type": "text",
+          "defaultValue": "123 Market St, San Francisco, CA 94105",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

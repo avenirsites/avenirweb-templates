@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "file": "photography-gallery/compiled.js",
+  "sources": [
+    "photography-gallery/index.html"
+  ],
+  "names": [],
+  "mappings": ""
+}

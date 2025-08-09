@@ -1,0 +1,1169 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Security Headers -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; 
+        script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; 
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
+        font-src 'self' https://fonts.gstatic.com; 
+        img-src 'self' data: https:; 
+        connect-src 'self' https://api.example.com;
+        frame-ancestors 'none';
+        base-uri 'self';
+        form-action 'self';"
+    />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <!-- SEO Meta Tags -->
+    <title>{{portfolio_owner_name}} - {{portfolio_title}}</title>
+    <meta name="description" content="{{portfolio_meta_description}}" />
+    <meta name="keywords" content="{{portfolio_meta_keywords}}" />
+    <meta name="author" content="{{portfolio_owner_name}}" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{portfolio_url}}" />
+    <meta property="og:title" content="{{portfolio_owner_name}} - {{portfolio_title}}" />
+    <meta property="og:description" content="{{portfolio_og_description}}" />
+    <meta property="og:image" content="{{portfolio_og_image}}" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="{{portfolio_url}}" />
+    <meta property="twitter:title" content="{{portfolio_owner_name}} - {{portfolio_title}}" />
+    <meta property="twitter:description" content="{{portfolio_twitter_description}}" />
+    <meta property="twitter:image" content="{{portfolio_twitter_image}}" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{portfolio_url}}" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" />
+
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- CSS -->
+    <style>
+      /* CSS Variables for theming */
+      :root {
+        --color-primary: #3b82f6;
+        --color-primary-dark: #2563eb;
+        --color-secondary: #8b5cf6;
+        --color-accent: #ec4899;
+        --color-text: #1f2937;
+        --color-text-light: #6b7280;
+        --color-bg: #ffffff;
+        --color-bg-secondary: #f9fafb;
+        --color-border: #e5e7eb;
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --transition-base: all 0.3s ease;
+      }
+
+      /* Dark mode variables */
+      [data-theme='dark'] {
+        --color-text: #f9fafb;
+        --color-text-light: #d1d5db;
+        --color-bg: #111827;
+        --color-bg-secondary: #1f2937;
+        --color-border: #374151;
+      }
+
+      /* Base styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+          'Open Sans', 'Helvetica Neue', sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+        background-color: var(--color-bg);
+      }
+
+      body {
+        min-height: 100vh;
+        transition: var(--transition-base);
+      }
+
+      /* Typography */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: 1.2;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+      }
+      h2 {
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+      }
+      h3 {
+        font-size: clamp(1.25rem, 3vw, 1.875rem);
+      }
+
+      p {
+        margin-bottom: 1rem;
+        color: var(--color-text-light);
+      }
+
+      /* Utility classes */
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+
+      .section {
+        padding: 4rem 0;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+
+      /* Components */
+      .btn {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: var(--transition-base);
+        cursor: pointer;
+        border: none;
+        font-size: 1rem;
+      }
+
+      .btn-primary {
+        background-color: var(--color-primary);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--color-primary-dark);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .btn-secondary {
+        background-color: transparent;
+        color: var(--color-primary);
+        border: 2px solid var(--color-primary);
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--color-primary);
+        color: white;
+      }
+
+      /* Navigation */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: var(--color-bg);
+        box-shadow: var(--shadow-sm);
+        z-index: 1000;
+        transition: var(--transition-base);
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--color-text);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition-base);
+      }
+
+      .nav-links a:hover {
+        color: var(--color-primary);
+      }
+
+      /* Mobile menu button */
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+      }
+
+      .menu-toggle span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: var(--color-text);
+        margin: 5px 0;
+        transition: var(--transition-base);
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding-top: 5rem;
+      }
+
+      .hero-content {
+        animation: fadeInUp 1s ease-out;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Grid layouts */
+      .grid {
+        display: grid;
+        gap: 2rem;
+      }
+
+      .grid-cols-2 {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+
+      .grid-cols-3 {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+
+      /* Cards */
+      .card {
+        background-color: var(--color-bg-secondary);
+        border-radius: 0.75rem;
+        padding: 2rem;
+        box-shadow: var(--shadow-md);
+        transition: var(--transition-base);
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      /* Project filter */
+      .filter-buttons {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        padding: 0.5rem 1rem;
+        background-color: var(--color-bg-secondary);
+        border: 2px solid var(--color-border);
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: var(--transition-base);
+      }
+
+      .filter-btn.active,
+      .filter-btn:hover {
+        background-color: var(--color-primary);
+        color: white;
+        border-color: var(--color-primary);
+      }
+
+      /* Forms */
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 0.75rem;
+        border: 2px solid var(--color-border);
+        border-radius: 0.5rem;
+        background-color: var(--color-bg);
+        color: var(--color-text);
+        transition: var(--transition-base);
+      }
+
+      input:focus,
+      textarea:focus,
+      select:focus {
+        outline: none;
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      }
+
+      /* Social links */
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 2rem;
+      }
+
+      .social-link {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--color-bg-secondary);
+        border-radius: 50%;
+        transition: var(--transition-base);
+        text-decoration: none;
+        color: var(--color-text);
+      }
+
+      .social-link:hover {
+        background-color: var(--color-primary);
+        color: white;
+        transform: translateY(-3px);
+      }
+
+      /* Skills */
+      .skill-tag {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background-color: var(--color-bg-secondary);
+        border-radius: 9999px;
+        margin: 0.25rem;
+        font-size: 0.875rem;
+      }
+
+      /* Dark mode toggle */
+      .theme-toggle {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: var(--color-primary);
+        color: white;
+        border: none;
+        cursor: pointer;
+        box-shadow: var(--shadow-lg);
+        transition: var(--transition-base);
+        z-index: 999;
+      }
+
+      .theme-toggle:hover {
+        transform: scale(1.1);
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background-color: var(--color-bg);
+          flex-direction: column;
+          padding: 1rem;
+          box-shadow: var(--shadow-md);
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+
+        .section {
+          padding: 3rem 0;
+        }
+
+        .filter-buttons {
+          justify-content: center;
+        }
+      }
+
+      /* Accessibility */
+      :focus-visible {
+        outline: 3px solid var(--color-primary);
+        outline-offset: 2px;
+      }
+
+      /* Loading states */
+      .skeleton {
+        background: linear-gradient(
+          90deg,
+          var(--color-bg-secondary) 25%,
+          var(--color-border) 50%,
+          var(--color-bg-secondary) 75%
+        );
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+      }
+
+      @keyframes loading {
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
+      }
+
+      /* Print styles */
+      @media print {
+        nav,
+        .theme-toggle,
+        .menu-toggle {
+          display: none;
+        }
+
+        .section {
+          page-break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main" class="sr-only">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav role="navigation" aria-label="Main navigation">
+      <div class="container nav-container">
+        <a href="#home" class="logo" aria-label="Home">
+          <strong>Your Name</strong>
+        </a>
+
+        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav-links" role="list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main">
+      <!-- Hero Section -->
+      <section id="home" class="hero section" aria-label="Hero section">
+        <div class="container">
+          <div class="hero-content">
+            <h1>{{hero_greeting}} <span class="text-gradient">{{portfolio_owner_name}}</span></h1>
+            <p style="font-size: 1.25rem; margin: 1.5rem 0">{{hero_tagline}}</p>
+            <p style="max-width: 600px; margin: 0 auto 2rem">{{hero_description}}</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap">
+              <a href="#projects" class="btn btn-primary">{{hero_cta_primary}}</a>
+              <a href="#contact" class="btn btn-secondary">{{hero_cta_secondary}}</a>
+            </div>
+
+            <!-- Social Links -->
+            <div class="social-links" aria-label="Social media links">
+              <a
+                href="https://github.com"
+                class="social-link"
+                aria-label="GitHub"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://linkedin.com"
+                class="social-link"
+                aria-label="LinkedIn"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://twitter.com"
+                class="social-link"
+                aria-label="Twitter"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section
+        id="about"
+        class="section"
+        style="background-color: var(--color-bg-secondary)"
+        aria-label="About section"
+      >
+        <div class="container">
+          <h2 style="text-align: center">{{about_section_title}}</h2>
+          <div class="grid grid-cols-2" style="align-items: center; gap: 4rem">
+            <div>
+              <img
+                src="data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='400' height='400' fill='%23e5e7eb'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%236b7280' font-family='sans-serif' font-size='20'%3EYour Photo%3C/text%3E%3C/svg%3E"
+                alt="Profile photo"
+                loading="lazy"
+                style="
+                  width: 100%;
+                  max-width: 400px;
+                  border-radius: 1rem;
+                  box-shadow: var(--shadow-lg);
+                "
+              />
+            </div>
+            <div>
+              <h3>{{about_subtitle}}</h3>
+              <p>{{about_paragraph_1}}</p>
+              <p>{{about_paragraph_2}}</p>
+              <p>{{about_paragraph_3}}</p>
+              <a href="#contact" class="btn btn-primary" style="margin-top: 1rem">Let's Connect</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="section" aria-label="Skills section">
+        <div class="container">
+          <h2 style="text-align: center">{{skills_section_title}}</h2>
+          <div class="grid grid-cols-3" style="margin-top: 3rem">
+            <div class="card">
+              <h3>Frontend Development</h3>
+              <p>Creating responsive and interactive user interfaces</p>
+              <div style="margin-top: 1rem">
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Vue.js</span>
+                <span class="skill-tag">TypeScript</span>
+                <span class="skill-tag">CSS/SCSS</span>
+                <span class="skill-tag">Tailwind</span>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Backend Development</h3>
+              <p>Building scalable and secure server-side applications</p>
+              <div style="margin-top: 1rem">
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">PostgreSQL</span>
+                <span class="skill-tag">MongoDB</span>
+                <span class="skill-tag">REST APIs</span>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Tools & Practices</h3>
+              <p>Utilizing modern tools and best practices</p>
+              <div style="margin-top: 1rem">
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">CI/CD</span>
+                <span class="skill-tag">AWS</span>
+                <span class="skill-tag">Agile</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section
+        id="projects"
+        class="section"
+        style="background-color: var(--color-bg-secondary)"
+        aria-label="Projects section"
+      >
+        <div class="container">
+          <h2 style="text-align: center">{{projects_section_title}}</h2>
+
+          <!-- Project Filter -->
+          <div class="filter-buttons" role="group" aria-label="Filter projects by category">
+            <button class="filter-btn active" data-filter="all">{{filter_all}}</button>
+            <button class="filter-btn" data-filter="web">{{filter_web}}</button>
+            <button class="filter-btn" data-filter="mobile">{{filter_mobile}}</button>
+            <button class="filter-btn" data-filter="design">{{filter_design}}</button>
+          </div>
+
+          <div class="grid grid-cols-3" id="projects-grid">
+            <!-- Project 1 -->
+            <article class="card project-item" data-category="web">
+              <img
+                src="data:image/svg+xml,%3Csvg width='400' height='250' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='400' height='250' fill='%23e5e7eb'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%236b7280' font-family='sans-serif' font-size='20'%3EProject 1%3C/text%3E%3C/svg%3E"
+                alt="Project 1 screenshot"
+                loading="lazy"
+                style="width: 100%; border-radius: 0.5rem; margin-bottom: 1rem"
+              />
+              <h3>{{project_1_title}}</h3>
+              <p>{{project_1_description}}</p>
+              <div style="margin-top: 1rem">
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Stripe</span>
+              </div>
+              <div style="margin-top: 1.5rem; display: flex; gap: 1rem">
+                <a href="#" class="btn btn-primary" style="font-size: 0.875rem"
+                  >{{project_view_live}}</a
+                >
+                <a href="#" class="btn btn-secondary" style="font-size: 0.875rem"
+                  >{{project_view_github}}</a
+                >
+              </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article class="card project-item" data-category="mobile">
+              <img
+                src="data:image/svg+xml,%3Csvg width='400' height='250' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='400' height='250' fill='%23e5e7eb'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%236b7280' font-family='sans-serif' font-size='20'%3EProject 2%3C/text%3E%3C/svg%3E"
+                alt="Project 2 screenshot"
+                loading="lazy"
+                style="width: 100%; border-radius: 0.5rem; margin-bottom: 1rem"
+              />
+              <h3>{{project_2_title}}</h3>
+              <p>{{project_2_description}}</p>
+              <div style="margin-top: 1rem">
+                <span class="skill-tag">React Native</span>
+                <span class="skill-tag">Firebase</span>
+                <span class="skill-tag">Redux</span>
+              </div>
+              <div style="margin-top: 1.5rem; display: flex; gap: 1rem">
+                <a href="#" class="btn btn-primary" style="font-size: 0.875rem"
+                  >{{project_view_live}}</a
+                >
+                <a href="#" class="btn btn-secondary" style="font-size: 0.875rem"
+                  >{{project_view_github}}</a
+                >
+              </div>
+            </article>
+
+            <!-- Project 3 -->
+            <article class="card project-item" data-category="design">
+              <img
+                src="data:image/svg+xml,%3Csvg width='400' height='250' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='400' height='250' fill='%23e5e7eb'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%236b7280' font-family='sans-serif' font-size='20'%3EProject 3%3C/text%3E%3C/svg%3E"
+                alt="Project 3 screenshot"
+                loading="lazy"
+                style="width: 100%; border-radius: 0.5rem; margin-bottom: 1rem"
+              />
+              <h3>{{project_3_title}}</h3>
+              <p>{{project_3_description}}</p>
+              <div style="margin-top: 1rem">
+                <span class="skill-tag">Figma</span>
+                <span class="skill-tag">Storybook</span>
+                <span class="skill-tag">CSS-in-JS</span>
+              </div>
+              <div style="margin-top: 1.5rem; display: flex; gap: 1rem">
+                <a href="#" class="btn btn-primary" style="font-size: 0.875rem"
+                  >{{project_view_live}}</a
+                >
+                <a href="#" class="btn btn-secondary" style="font-size: 0.875rem"
+                  >{{project_view_github}}</a
+                >
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section id="testimonials" class="section" aria-label="Testimonials section">
+        <div class="container">
+          <h2 style="text-align: center">What People Say</h2>
+          <div class="grid grid-cols-2" style="margin-top: 3rem">
+            <div class="card">
+              <p style="font-style: italic; font-size: 1.125rem">
+                "Working with [Your Name] was an absolute pleasure. They delivered a high-quality
+                solution that exceeded our expectations. Their attention to detail and communication
+                throughout the project was exceptional."
+              </p>
+              <div style="margin-top: 1.5rem">
+                <strong>Jane Doe</strong>
+                <p style="font-size: 0.875rem; margin: 0">CEO, Tech Startup</p>
+              </div>
+            </div>
+            <div class="card">
+              <p style="font-style: italic; font-size: 1.125rem">
+                "I was impressed by their technical expertise and problem-solving abilities. They
+                took our complex requirements and turned them into an elegant, user-friendly
+                application."
+              </p>
+              <div style="margin-top: 1.5rem">
+                <strong>John Smith</strong>
+                <p style="font-size: 0.875rem; margin: 0">Product Manager, Enterprise Co.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section
+        id="contact"
+        class="section"
+        style="background-color: var(--color-bg-secondary)"
+        aria-label="Contact section"
+      >
+        <div class="container">
+          <h2 style="text-align: center">{{contact_section_title}}</h2>
+          <p style="text-align: center; max-width: 600px; margin: 0 auto 3rem">
+            {{contact_description}}
+          </p>
+
+          <form id="contact-form" style="max-width: 600px; margin: 0 auto" novalidate>
+            <!-- Hidden field for bot protection -->
+            <input
+              type="text"
+              name="honeypot"
+              style="display: none"
+              tabindex="-1"
+              autocomplete="off"
+            />
+
+            <div class="form-group">
+              <label for="name">{{contact_name_label}} <span aria-label="required">*</span></label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                aria-required="true"
+                autocomplete="name"
+              />
+              <span class="error-message" role="alert" style="color: red; display: none"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="email"
+                >{{contact_email_label}} <span aria-label="required">*</span></label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                aria-required="true"
+                autocomplete="email"
+              />
+              <span class="error-message" role="alert" style="color: red; display: none"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" />
+            </div>
+
+            <div class="form-group">
+              <label for="message"
+                >{{contact_message_label}} <span aria-label="required">*</span></label
+              >
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                aria-required="true"
+              ></textarea>
+              <span class="error-message" role="alert" style="color: red; display: none"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%">
+              {{contact_submit_button}}
+            </button>
+
+            <div
+              id="form-status"
+              role="status"
+              aria-live="polite"
+              style="margin-top: 1rem; text-align: center"
+            ></div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      style="background-color: var(--color-text); color: white; padding: 2rem 0; text-align: center"
+    >
+      <div class="container">
+        <p style="color: white; margin-bottom: 0">
+          &copy; <span id="current-year">{{current_year}}</span> {{portfolio_owner_name}}.
+          {{footer_rights_text}}.
+        </p>
+        <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.875rem; margin-top: 0.5rem">
+          {{footer_made_with_text}}
+        </p>
+      </div>
+    </footer>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" aria-label="Toggle dark mode">
+      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+      </svg>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+      // Strict mode
+      'use strict'
+
+      // DOM Content Loaded
+      document.addEventListener('DOMContentLoaded', function () {
+        // Initialize
+        initializeTheme()
+        initializeNavigation()
+        initializeProjectFilter()
+        initializeForm()
+        initializeSmoothScroll()
+        updateYear()
+
+        // Theme functionality
+        function initializeTheme() {
+          const themeToggle = document.querySelector('.theme-toggle')
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)')
+
+          // Check for saved theme preference
+          const savedTheme = localStorage.getItem('theme')
+          if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme)
+          } else if (prefersDark.matches) {
+            document.documentElement.setAttribute('data-theme', 'dark')
+          }
+
+          themeToggle.addEventListener('click', function () {
+            const currentTheme = document.documentElement.getAttribute('data-theme')
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
+            document.documentElement.setAttribute('data-theme', newTheme)
+            localStorage.setItem('theme', newTheme)
+          })
+        }
+
+        // Mobile navigation
+        function initializeNavigation() {
+          const menuToggle = document.querySelector('.menu-toggle')
+          const navLinks = document.querySelector('.nav-links')
+
+          menuToggle.addEventListener('click', function () {
+            navLinks.classList.toggle('active')
+            const isExpanded = navLinks.classList.contains('active')
+            menuToggle.setAttribute('aria-expanded', isExpanded)
+          })
+
+          // Close menu when clicking a link
+          navLinks.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', function () {
+              navLinks.classList.remove('active')
+              menuToggle.setAttribute('aria-expanded', 'false')
+            })
+          })
+
+          // Close menu when clicking outside
+          document.addEventListener('click', function (e) {
+            if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+              navLinks.classList.remove('active')
+              menuToggle.setAttribute('aria-expanded', 'false')
+            }
+          })
+        }
+
+        // Project filtering
+        function initializeProjectFilter() {
+          const filterButtons = document.querySelectorAll('.filter-btn')
+          const projectItems = document.querySelectorAll('.project-item')
+
+          filterButtons.forEach((button) => {
+            button.addEventListener('click', function () {
+              // Update active button
+              filterButtons.forEach((btn) => btn.classList.remove('active'))
+              this.classList.add('active')
+
+              // Filter projects
+              const filter = this.getAttribute('data-filter')
+              projectItems.forEach((item) => {
+                if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                  item.style.display = 'block'
+                  // Add fade in animation
+                  item.style.animation = 'fadeInUp 0.5s ease-out'
+                } else {
+                  item.style.display = 'none'
+                }
+              })
+            })
+          })
+        }
+
+        // Form handling with security
+        function initializeForm() {
+          const form = document.getElementById('contact-form')
+          const formStatus = document.getElementById('form-status')
+
+          form.addEventListener('submit', async function (e) {
+            e.preventDefault()
+
+            // Check honeypot (anti-bot)
+            if (form.honeypot.value) {
+              return
+            }
+
+            // Clear previous errors
+            form.querySelectorAll('.error-message').forEach((error) => {
+              error.style.display = 'none'
+              error.textContent = ''
+            })
+
+            // Validate form
+            let isValid = true
+
+            // Name validation
+            const name = form.name.value.trim()
+            if (!name) {
+              showError(form.name, 'Name is required')
+              isValid = false
+            } else if (name.length < 2) {
+              showError(form.name, 'Name must be at least 2 characters')
+              isValid = false
+            }
+
+            // Email validation
+            const email = form.email.value.trim()
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+            if (!email) {
+              showError(form.email, 'Email is required')
+              isValid = false
+            } else if (!emailRegex.test(email)) {
+              showError(form.email, 'Please enter a valid email')
+              isValid = false
+            }
+
+            // Message validation
+            const message = form.message.value.trim()
+            if (!message) {
+              showError(form.message, 'Message is required')
+              isValid = false
+            } else if (message.length < 10) {
+              showError(form.message, 'Message must be at least 10 characters')
+              isValid = false
+            }
+
+            if (!isValid) {
+              return
+            }
+
+            // Sanitize inputs
+            const formData = {
+              name: sanitizeInput(name),
+              email: sanitizeInput(email),
+              subject: sanitizeInput(form.subject.value.trim()),
+              message: sanitizeInput(message),
+            }
+
+            // Show loading state
+            const submitButton = form.querySelector('button[type="submit"]')
+            const originalText = submitButton.textContent
+            submitButton.disabled = true
+            submitButton.textContent = 'Sending...'
+
+            try {
+              // Simulate form submission (replace with actual endpoint)
+              // For production, implement proper CORS headers on your server
+              // await fetch('https://your-api-endpoint.com/contact', {
+              //     method: 'POST',
+              //     headers: {
+              //         'Content-Type': 'application/json',
+              //     },
+              //     body: JSON.stringify(formData)
+              // });
+
+              // Simulate success
+              await new Promise((resolve) => setTimeout(resolve, 1000))
+
+              formStatus.innerHTML =
+                '<p style="color: green;">Message sent successfully! I\'ll get back to you soon.</p>'
+              form.reset()
+            } catch (error) {
+              formStatus.innerHTML =
+                '<p style="color: red;">Sorry, there was an error sending your message. Please try again later.</p>'
+            } finally {
+              submitButton.disabled = false
+              submitButton.textContent = originalText
+            }
+          })
+
+          function showError(input, message) {
+            const errorElement = input.nextElementSibling
+            errorElement.textContent = message
+            errorElement.style.display = 'block'
+            input.setAttribute('aria-invalid', 'true')
+          }
+
+          function sanitizeInput(input) {
+            // Basic HTML sanitization
+            const div = document.createElement('div')
+            div.textContent = input
+            return div.innerHTML
+          }
+        }
+
+        // Smooth scrolling
+        function initializeSmoothScroll() {
+          document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+            anchor.addEventListener('click', function (e) {
+              const targetId = this.getAttribute('href')
+              if (targetId === '#') return
+
+              const targetElement = document.querySelector(targetId)
+              if (targetElement) {
+                e.preventDefault()
+                const navHeight = document.querySelector('nav').offsetHeight
+                const targetPosition = targetElement.offsetTop - navHeight
+
+                window.scrollTo({
+                  top: targetPosition,
+                  behavior: 'smooth',
+                })
+              }
+            })
+          })
+        }
+
+        // Update year
+        function updateYear() {
+          document.getElementById('current-year').textContent = new Date().getFullYear()
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -100px 0px',
+        }
+
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.animation = 'fadeInUp 0.8s ease-out'
+              observer.unobserve(entry.target)
+            }
+          })
+        }, observerOptions)
+
+        // Observe elements
+        document.querySelectorAll('.card, .section > .container > *').forEach((el) => {
+          observer.observe(el)
+        })
+      })
+
+      // Performance optimization: Lazy load images
+      if ('loading' in HTMLImageElement.prototype) {
+        const images = document.querySelectorAll('img[loading="lazy"]')
+        images.forEach((img) => {
+          img.src = img.src
+        })
+      } else {
+        // Fallback for browsers that don't support lazy loading
+        const script = document.createElement('script')
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js'
+        script.integrity =
+          'sha512-q583ppKrCRc7N5O0n2nzUiJ+suUv7Et1JGels4bXOaMFQcamPk9HjdUknZuuFjBNs7tsMuadge5k9RzdmO+1GQ=='
+        script.crossOrigin = 'anonymous'
+        document.body.appendChild(script)
+      }
+    </script>
+  </body>
+</html>

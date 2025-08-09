@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "file": "landing/compiled.js",
+  "sources": [
+    "landing/index.html"
+  ],
+  "names": [],
+  "mappings": ""
+}

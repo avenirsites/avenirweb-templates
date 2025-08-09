@@ -1,0 +1,287 @@
+{
+  "id": "photography-gallery",
+  "name": "Photography Gallery",
+  "description": "Stunning gallery template with masonry layout and lightbox viewer for photographers",
+  "category": "photography",
+  "features": [
+    "Masonry grid layout",
+    "Full-screen lightbox",
+    "EXIF data display",
+    "Client galleries",
+    "Dark theme default",
+    "Instagram integration ready"
+  ],
+  "customizableElements": {
+    "colors": true,
+    "fonts": true,
+    "layout": true,
+    "content": true
+  },
+  "contentSchema": [
+    {
+      "id": "metadata",
+      "title": "Page Metadata & SEO",
+      "description": "Configure page title and meta information",
+      "fields": [
+        {
+          "key": "page_title",
+          "label": "Page Title",
+          "type": "text",
+          "defaultValue": "Aria Lens Photography - Capturing Life's Beautiful Moments",
+          "maxLength": 60,
+          "required": true
+        },
+        {
+          "key": "page_description",
+          "label": "Page Description",
+          "type": "textarea",
+          "defaultValue": "Professional photography services specializing in portraits, weddings, and events. Capturing authentic moments with artistic vision.",
+          "maxLength": 160,
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "header",
+      "title": "Header & Branding",
+      "description": "Your logo and navigation text",
+      "fields": [
+        {
+          "key": "logo_text",
+          "label": "Logo/Brand Name",
+          "type": "text",
+          "defaultValue": "ARIA LENS",
+          "required": true
+        },
+        {
+          "key": "nav_gallery",
+          "label": "Gallery Nav Text",
+          "type": "text",
+          "defaultValue": "Gallery",
+          "required": true
+        },
+        {
+          "key": "nav_about",
+          "label": "About Nav Text",
+          "type": "text",
+          "defaultValue": "About",
+          "required": true
+        },
+        {
+          "key": "nav_contact",
+          "label": "Contact Nav Text",
+          "type": "text",
+          "defaultValue": "Contact",
+          "required": true
+        },
+        {
+          "key": "nav_client",
+          "label": "Client Area Nav Text",
+          "type": "text",
+          "defaultValue": "Client Access",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "hero",
+      "title": "Hero Section",
+      "description": "Main headline and introduction",
+      "fields": [
+        {
+          "key": "hero_title",
+          "label": "Hero Title",
+          "type": "text",
+          "defaultValue": "Capturing Life's",
+          "required": true
+        },
+        {
+          "key": "hero_subtitle",
+          "label": "Hero Subtitle",
+          "type": "text",
+          "defaultValue": "Beautiful Moments",
+          "required": true
+        },
+        {
+          "key": "hero_description",
+          "label": "Hero Description",
+          "type": "textarea",
+          "defaultValue": "Professional photography that tells your story with authenticity and artistry",
+          "maxLength": 150,
+          "required": true
+        },
+        {
+          "key": "hero_cta",
+          "label": "Hero CTA Text",
+          "type": "text",
+          "defaultValue": "View Portfolio",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "gallery",
+      "title": "Gallery Section",
+      "description": "Gallery filters and titles",
+      "fields": [
+        {
+          "key": "gallery_title",
+          "label": "Gallery Section Title",
+          "type": "text",
+          "defaultValue": "Portfolio",
+          "required": true
+        },
+        {
+          "key": "filter_all",
+          "label": "All Filter Text",
+          "type": "text",
+          "defaultValue": "All",
+          "required": true
+        },
+        {
+          "key": "filter_portraits",
+          "label": "Portraits Filter Text",
+          "type": "text",
+          "defaultValue": "Portraits",
+          "required": true
+        },
+        {
+          "key": "filter_weddings",
+          "label": "Weddings Filter Text",
+          "type": "text",
+          "defaultValue": "Weddings",
+          "required": true
+        },
+        {
+          "key": "filter_events",
+          "label": "Events Filter Text",
+          "type": "text",
+          "defaultValue": "Events",
+          "required": true
+        },
+        {
+          "key": "filter_nature",
+          "label": "Nature Filter Text",
+          "type": "text",
+          "defaultValue": "Nature",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "about",
+      "title": "About Section",
+      "description": "Tell your story",
+      "fields": [
+        {
+          "key": "about_title",
+          "label": "About Section Title",
+          "type": "text",
+          "defaultValue": "About",
+          "required": true
+        },
+        {
+          "key": "about_paragraph1",
+          "label": "About Paragraph 1",
+          "type": "textarea",
+          "defaultValue": "Welcome to Aria Lens Photography. I'm a passionate photographer dedicated to capturing the authentic beauty of life's most precious moments.",
+          "maxLength": 300,
+          "required": true
+        },
+        {
+          "key": "about_paragraph2",
+          "label": "About Paragraph 2",
+          "type": "textarea",
+          "defaultValue": "With over a decade of experience, I specialize in portrait, wedding, and event photography. My approach combines technical expertise with an artistic eye to create images that tell your unique story.",
+          "maxLength": 300,
+          "required": true
+        },
+        {
+          "key": "about_paragraph3",
+          "label": "About Paragraph 3",
+          "type": "textarea",
+          "defaultValue": "Every session is a collaboration, where your vision meets my creativity. Let's work together to create timeless images that you'll treasure forever.",
+          "maxLength": 300,
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "title": "Contact Section",
+      "description": "Contact form and information",
+      "fields": [
+        {
+          "key": "contact_title",
+          "label": "Contact Section Title",
+          "type": "text",
+          "defaultValue": "Get in Touch",
+          "required": true
+        },
+        {
+          "key": "contact_subtitle",
+          "label": "Contact Subtitle",
+          "type": "text",
+          "defaultValue": "Let's create something beautiful together",
+          "required": true
+        },
+        {
+          "key": "form_name_label",
+          "label": "Name Field Label",
+          "type": "text",
+          "defaultValue": "Your Name",
+          "required": true
+        },
+        {
+          "key": "form_email_label",
+          "label": "Email Field Label",
+          "type": "text",
+          "defaultValue": "Your Email",
+          "required": true
+        },
+        {
+          "key": "form_service_label",
+          "label": "Service Field Label",
+          "type": "text",
+          "defaultValue": "Service Interested In",
+          "required": true
+        },
+        {
+          "key": "form_message_label",
+          "label": "Message Field Label",
+          "type": "text",
+          "defaultValue": "Your Message",
+          "required": true
+        },
+        {
+          "key": "form_submit_text",
+          "label": "Submit Button Text",
+          "type": "text",
+          "defaultValue": "Send Message",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "footer",
+      "title": "Footer Information",
+      "description": "Footer content and social links",
+      "fields": [
+        {
+          "key": "footer_copyright",
+          "label": "Copyright Text",
+          "type": "text",
+          "defaultValue": "© 2024 Aria Lens Photography. All rights reserved.",
+          "required": true
+        },
+        {
+          "key": "instagram_handle",
+          "label": "Instagram Handle",
+          "type": "text",
+          "defaultValue": "@arialens",
+          "required": false
+        }
+      ]
+    }
+  ]
+}
